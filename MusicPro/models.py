@@ -35,5 +35,9 @@ class AccesoriosVarios(models.Model):
     tipo_de_producto = models.CharField(max_length=25)
     precio = models.CharField(max_length=10)
 
+class Venta(models.Model):
+    precio_total = models.CharField(max_length=15)
+    fecha =models.DateTimeField()
+
 
 
