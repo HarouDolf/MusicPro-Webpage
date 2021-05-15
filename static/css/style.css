@@ -14,3 +14,15 @@
     max-width: 20%;
     transform: translateY(-50%) translateX(-20%);
 }
+
+.color_titulos {
+    color: #e5e0dc;
+    text-shadow: 2px 2px 2px black;
+    font-size: 50px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.fondo_titulos {
+    background-color: #212529;
+}

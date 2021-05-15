@@ -10,45 +10,80 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bc177a9f46.js" crossorigin="anonymous"></script>
 
     <!-- Import de css -->
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 
 </head>
-<body>
+<body style="background-color:#494b5b;">
 
 <!-- Barra de Navegacion -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">MusicPro</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-music"></i> MusicPro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                    <a class="nav-link" aria-current="page" href="/"><i class="fas fa-home"></i>  Inicio</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Producto
-                    </a>
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-guitar"></i> Instrumentos de Cuerda </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Instrumentos de cuerdas</a></li>
-                        <li><a class="dropdown-item" href="#">Percusion</a></li>
-                        <li><a class="dropdown-item" href="#">Amplificadores</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios Varios</a></li>
-                        <li><a class="dropdown-item" href="/producto/">Ver todos</a></li>
+                        <li><a class="dropdown-item" href="#">Guitarras</a></li>
+                        <li><a class="dropdown-item" href="#">Bajos</a></li>
+                        <li><a class="dropdown-item" href="#">Pianos</a></li>
+
                     </ul>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-drum"></i> Percusion </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Baterias Acústicas</a></li>
+                        <li><a class="dropdown-item" href="#">Baterias Electrónicas</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-sliders-h"></i> Amplificadores </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Cabezales</a></li>
+                        <li><a class="dropdown-item" href="#">Cajas</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-icons"></i> Amplificadores </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#">Audifonos</a></li>
+                        <li><a class="dropdown-item" href="#">Monitores</a></li>
+                        <li><a class="dropdown-item" href="#">Parlantes</a></li>
+                        <li><a class="dropdown-item" href="#">Cables</a></li>
+                        <li><a class="dropdown-item" href="#">Microfonos</a></li>
+                        <li><a class="dropdown-item" href="#">Interfaces</a></li>
+                        <li><a class="dropdown-item" href="#">Mixers</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item" style="padding-left: 550px">
+                    <a class="nav-link" aria-current="page" href="/"><i class="fas fa-shopping-cart"></i> Carrito de Compras</a>
+                </li>
+
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                <input class="form-control me-2 type="search" placeholder="¿Que buscas?" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </div>
@@ -62,34 +97,38 @@
             {% endblock %}
         </div>
     </div>
-
 </div>
-    <!-- PONER INFORMACION EN EL FOOTER QUE CORRESPONDA -->
+<!-- PONER INFORMACION EN EL FOOTER QUE CORRESPONDA -->
 <!-- Footer -->
-<footer class="bg-dark text-center text-lg-start">
-    <!-- Grid container -->
-    <div class="d-flex py-4 px-16">
-        <!--Grid row-->
-        <div class="row justify-content-around w-100">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-center text-uppercase text-white">Quienes somos</h5>
-                <p class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci deleniti eius fugit hic, illo
-                    ipsam, libero molestiae molestias quisquam quos rem, repellendus veritatis! Dolor, molestiae,
-                    nostrum? Incidunt quae, reprehenderit!</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-center text-uppercase text-white">Informacion de contacto</h5>
-                <p class="text-light text-center">Contacanos en<br>+56969694207<br>Pregunte por doña juana</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-center text-uppercase text-white">Horarios de atencion<br>Yo abro cuando quiero el que tiene plata hace lo que quiere</h5>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-center text-uppercase text-white">Redes</h5>
-                <p class="text-light text-center">las de narcotrafico</p>
+    <footer class="bg-dark text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="d-flex py-4 px-16">
+            <!--Grid row-->
+            <div class="row justify-content-around w-100">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-center text-uppercase text-white"><i class="fas fa-users"></i> Quienes somos</h5>
+                    <p class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+                        adipisci
+                        deleniti eius fugit hic, illo
+                        ipsam, libero molestiae molestias quisquam quos rem, repellendus veritatis! Dolor, molestiae,
+                        nostrum? Incidunt quae, reprehenderit!</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-center text-uppercase text-white"><i class="fas fa-id-card"></i> Informacion de contacto</h5>
+                    <p class="text-light text-center">Contacanos en<br>+56969694207<br>Poblacion la poblacion</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-center text-uppercase text-white"> <i class="far fa-calendar-alt"></i> Horarios de atencion</h5>
+                    <p class="text-light text-center">Abierto desde las tanto a las tanto</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-center text-uppercase text-white">Redes</h5>
+                    <p class="text-light text-center"><i class="fab fa-facebook-square"></i> Facebook
+                        <br><i class="fab fa-twitter"></i> Twitter
+                        <br><i class="fab fa-instagram"></i> Instagram</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

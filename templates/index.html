@@ -18,13 +18,17 @@
                 <img src="{% static "/media/baterias-acusticas-portada2.jpg" %}" class="d-block w-100" alt="...">
                 <div class="dark-overlay"></div>
                 <div class="carousel-caption">
-                    <h3>AWAWA</h3>
-                    <h5>very bottom such sub</h5>
+                    <h3>Baterias</h3>
+                    <h5>Super wonitas las baterias</h5>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static "/media/bff340658940d30570f81cb22f9dd044.jpg" %}" class="d-block w-100" alt="...">
                 <div class="dark-overlay"></div>
+                <div class="carousel-caption">
+                    <h3>guitarra</h3>
+                    <h5>Super wonitas las guitarras</h5>
+                </div>
             </div>
             <!--<div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
@@ -42,13 +46,110 @@
         </button>
     </div>
 
-    <div>
+    <div> <!--Div inicial ofertas-->
         <!-- HACER TARJETAS PARA LOS PRODUCTOS, BASTA CON HACER SOLO UNA TARJETA -->
-        <h1>Ofertas</h1>
-    </div>
-        <!-- PONER LAS MISMAS CATEGORIAS QUE ESTAN ARRIBA -->
+
+        <h1 class="text-center color_titulos fondo_titulos"><i class="fas fa-certificate"></i> Ofertas </h1>
+        <!------------------------------------------------------------------------->
+        <div class="card-group justify-content " style="padding: 2vw 2vw 2vw 6vw" >
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{% static "/media/jajas.jpg" %}" class="card-img-top img-fluid" alt="imagen">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Guitarra bonita uwu </h5>
+                            <p class="card-text">a solo 200.000 bella.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{% static "/media/jajas.jpg" %}" class="card-img-top img-fluid" alt="imagen">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"> Piano feo ;c </h5>
+                            <p class="card-text">a solo 200.000 bella.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{% static "/media/jajas.jpg" %}" class="card-img-top img-fluid" alt="imagen">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"> Amplificado marca Acme </h5>
+                            <p class="card-text">a solo 200.000 bella.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!--Div final bloque ofertas-->
+
+    <!-- PONER LAS MISMAS CATEGORIAS QUE ESTAN ARRIBA -->
     <div>
-        <h1>Categorias</h1>
+        <h1 class="text-center color_titulos fondo_titulos"><i class="fas fa-sitemap"></i> Categorias </h1>
+
+        <div class="row row-cols-1 row-cols-md-2 g-3" style="padding: 2vw 1vw 2vw 1vw">
+            <div class="col">
+                <div class="card">
+                    <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
+                         style="max-width: 50vw" alt="imagen">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"> Instrumentos de Cuerda </h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural
+                            lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
+                         style="max-width: 50vw" alt="imagen">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"> Instrumentos de PercusiÃ³n </h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural
+                            lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
+                         style="max-width: 50vw" alt="imagen">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"> Amplificadores </h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural
+                            lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
+                         style="max-width: 50vw" alt="imagen">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"> Accesorios y Varios </h5>
+                        <p class="card-text"> This is a longer card with supporting text below as a natural
+                            lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
