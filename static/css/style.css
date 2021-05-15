@@ -1,10 +1,10 @@
-.dark-overlay{
+.dark-overlay {
     position: absolute;
     top: 0%;
     left: 0%;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .carousel-caption {
@@ -26,3 +26,28 @@
 .fondo_titulos {
     background-color: #212529;
 }
+
+.area_tot_prduc {
+
+    width: 97%;
+    background: white;
+    margin: 10px 30px 10px 30px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.area_listado {
+
+    width: 25%;
+    background-color: white;
+}
+
+.img_producto {
+
+    width: 50%;
+    background-color: white;
+    margin-top: 10px;
+
+}
+

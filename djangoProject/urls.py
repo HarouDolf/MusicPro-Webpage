@@ -21,6 +21,7 @@ from MusicPro import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('producto/',views.producto,name='producto'),
+    path('producto.html/', views.producto, name='producto'),
+
 ]
 urlpatterns += staticfiles_urlpatterns()
