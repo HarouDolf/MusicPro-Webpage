@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('producto.html/', views.producto, name='producto'),
-
+    path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
 ]
+
 urlpatterns += staticfiles_urlpatterns()

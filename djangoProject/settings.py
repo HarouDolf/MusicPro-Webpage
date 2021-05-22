@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+from pathlib import Path
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MusicPro',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +135,23 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# WEBPAY
+WEBPAY_RETURN_IP_ADDRESS = '127.0.0.1'              # Ip address of the host hosting the e-commerce site.
+WEBPAY_RETURN_PORT = 8000                           # Port where the server is listening for?
+
+WEBPAY_NORMAL = {
+
+
+    'ACTIVE_ENVIRON': 'INTEGRATION',                # INTEGRATION, PRODUCTION or CERTIFICATION
+                                                    # This values determines which url is used
+                                                    # from the 'ENVIRONMENTS' setting.
+
+    'ENVIRONMENTS': {                               # Map the service urls to the active environment value.
+        'INTEGRATION': 'https://webpay3gint.transbank.cl/WSWebpayTransaction/cxf/WSWebpayService?wsdl',
+    },
+
+    # The following settings are self explanatory.
+    'PRIVATE_KEY':  '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',
+    'COMMERCE_CODE': '597055555532'
+}
