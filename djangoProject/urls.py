@@ -21,8 +21,7 @@ from MusicPro import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('producto.html/', views.producto, name='producto'),
-    path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
-]
+    path('producto/', views.producto, name='producto'),
+path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
