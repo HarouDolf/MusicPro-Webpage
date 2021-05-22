@@ -1,54 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <!-- HACER UN SKETCH DE COMO QUEREMOS QUE SEA ESTA PAGINA ANTES DE DESARROLLARLA -->
 
     <h2 class="text-center color_titulos fondo_titulos"><i class="fas fa-shopping-bag"></i></i> Productos </h2>
 
-    <div class="sidebar">
-            <!-- Listado izquierdo de productos -->
-            <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                    The current button
+
+    <!-- Listado izquierdo de productos -->
+    <div class="container px-0 mx-4">
+        <div class="row">
+            <div class="col-4">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true"> Tipo de
+                    producto
                 </button>
-                <button type="button" class="list-group-item list-group-item-action">A second item</button>
+                <button type="button" class="list-group-item list-group-item-action"> Marcas</button>
                 <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-                <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item
                 </button>
             </div>
-        </div>
 
-        <!--Area para las imagenes de productos-->
-        <div class="img_producto main-content">
+            <!--Area para las imagenes de productos-->
+            <div class="col-8">
 
-            <div class="card-group" style="max-width: 600px">
-                <div class="card">
-                    <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                    <div class="card-body">
-                        <h5 class="card-title">Guitarra chingona</h5>
-                        <p class="card-text"> Para chingar con estilo</p>
+                <div class="card-group" style="max-width: 600px">
+                    <div class="card">
+                        <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
+                        <div class="card-body">
+                            <h5 class="card-title">Guitarra chingona</h5>
+                            <p class="card-text"> Para chingar con estilo</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                    <div class="card-body">
-                        <h5 class="card-title">Guitarra chingona</h5>
-                        <p class="card-text"> Para chingar con estilo</p>
+                    <div class="card">
+                        <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
+                        <div class="card-body">
+                            <h5 class="card-title">Guitarra chingona</h5>
+                            <p class="card-text"> Para chingar con estilo</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                    <div class="card-body">
-                        <h5 class="card-title">Guitarra chingona</h5>
-                        <p class="card-text"> Para chingar con estilo</p>
+                    <div class="card">
+                        <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
+                        <div class="card-body">
+                            <h5 class="card-title">Guitarra chingona</h5>
+                            <p class="card-text"> Para chingar con estilo</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{% static "media/jajas.jpg" %}" class="card-img-top" alt="imagen">
+                        <div class="card-body">
+                            <h5 class="card-title">Guitarra chingona</h5>
+                            <p class="card-text"> Para chingar con estilo</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
 
 
 
