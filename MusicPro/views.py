@@ -6,6 +6,8 @@ from  django.contrib import messages
 from .forms import AñadirAlCarroForm
 from MusicPro.models import  Productos
 from transbank.webpay.webpay_plus.transaction import Transaction
+from django.views.decorators.csrf import csrf_protect
+from.cart import Cart
 
 from cart import cart
 # Create your views here.
@@ -15,23 +17,34 @@ def index(request):
 def producto(request):
     return render(request, 'producto.html')
 
-def mostrarProducto(request):
 
-    cart = cart(request)
+def add_product_carrito(request, instrument_id):
+    cart = Cart(request)
+    instrument = producto.objects.get(id=instrument_id)
+    cart.añadir(instrument=instrument)
+    return redirect("/cart.html")
 
-    if request.method == 'POST':
-        form = AñadirAlCarroForm(request.POST)
 
-        if form.is_valid():
-            cantidad = form.cleaned_data['cantidad']
+@csrf_protect
+def decrement_product(request, instrument_id):
+    cart = Cart(request)
+    instrument = producto.objects.get(id=instrument_id)
+    cart.quitarProducto(instrument=instrument)
+    return redirect("/cart.html")
 
-            cart.add(producto_id=Productos.id, cantidad=cantidad, actualizar_cantidad=False)
+@csrf_protect
+def remove_product(request, instrument_id):
+    cart = Cart(request)
+    instrument = producto.objects.get(id=instrument_id)
+    cart.eliminar(instrument)
+    return redirect("/cart.html")
 
-            messages.success(request, 'Se ah añadido un producto al carro')
+@csrf_protect
+def clear_cart(request):
+    cart = Cart(request)
+    cart.limpiar()
+    return redirect("/cart.html")
 
-            return redirect('producto')
-        else:
-            form = AñadirAlCarroForm()
 
 # WebPay
 def webpay_plus_create(request):
@@ -39,7 +52,7 @@ def webpay_plus_create(request):
     buy_order = str(random.randrange(1000000, 99999999))
     session_id = str(random.randrange(1000000, 99999999))
     amount = random.randrange(10000, 1000000)
-    return_url = 'http://transbank-rest-demo.herokuapp.com/webpay_plus/commit'
+    return_url = 'http://127.0.0.1:8000/webpay_plus/commit'
 
     create_request = {
         "buy_order": buy_order,
@@ -56,3 +69,16 @@ def webpay_plus_create(request):
     print(response)
 
     return render(request, 'Webpay/create.html', data)
+
+def webpay_plus_commit(request):
+    token = request.POST.get("token_ws")
+    print("commit for token_ws: {}".format(token))
+
+    response = Transaction.commit(token=token)
+    print("response: {}".format(response))
+
+    data = {
+        'token' : token,
+        'response' : response
+    }
+    return render(request, 'Webpay/commit.html', data)
