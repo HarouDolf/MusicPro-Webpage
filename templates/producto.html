@@ -227,55 +227,27 @@
                 </div>
 
                 <!--Area para las imagenes de productos-->
-
-                <div class="px-3">
-                    <div class="row justify-content-around">
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="{% static "/media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
+                <div style="margin: 1%;">
+                    <div class="container">
+                        <div class="row justify-content-around">
+                            {% for producto in productos %}
+                                <div class="col-lg-3">
+                                    <div class="card"
+                                         style="height: 450px; margin-bottom: 1rem; box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.6);">
+                                        <div style="height: 400px; overflow: hidden;">
+                                            <img src="{{ producto.image.url }}" class="card-img-top img-fluid"
+                                                 alt="imagen">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-light">{{ producto.nombre }}</h5>
+                                            <p class="card-text fw-light text-light">{{ producto.descripcion|truncatewords:6 }}</p>
+                                            <p class="card-text fw-light text-light">${{ producto.precio }}</p>
+                                            <a href="#" class="btn btn-primary">Ver Mas</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            {% endfor %}
                         </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="{% static "/media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="{% static "/media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="{% static "/media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="{% static "/media/jajas.jpg" %}" class="card-img-top" alt="imagen">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
