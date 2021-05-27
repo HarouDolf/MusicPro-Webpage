@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Model
 
 # Create your models here.
 
@@ -13,6 +14,7 @@ CATEGORIA_CHOICES = (
     (ACCESORIOSVARIOS, 'Accesorios varios')
 )
 
+NOSELECTION = 'No selection'
 GUITARRAS = 'Guitarras'
 BAJOS = 'Bajos'
 PIANOS = 'Pianos'
@@ -21,7 +23,7 @@ BATERIAELECTRONICA = 'Batería electrónica'
 CABEZALES = 'Cabezales'
 CAJAS = 'Cajas'
 SUBCATEGORIA_CHOICES = (
-    ('', '----------')
+    (NOSELECTION, 'No selection'),
     (GUITARRAS, 'Guitarras'),
     (BAJOS, 'Bajos'),
     (PIANOS, 'Pianos'),
@@ -31,6 +33,7 @@ SUBCATEGORIA_CHOICES = (
     (CAJAS, 'Cajas')
 )
 
+NOSELECTION = 'No selection'
 GUITARRASCUERPOSOLIDO = 'Guitarras Cuerpo Solido'
 GUITARRASACUSTICAS = 'Guitarras Acústicas'
 GUITARRASELECTRICAS = 'Guitarras Eléctricas'
@@ -42,7 +45,7 @@ PIANODEMEDIACOLA = 'Piano de media cola'
 PIANODECOLAENTERA = 'Piano de cola entera'
 PIANOLAS = 'Pianolas'
 SUBSUBCATEGORIA_CHOICES = (
-    ('','----------'),
+    (NOSELECTION,'No selection'),
     (GUITARRASCUERPOSOLIDO, 'Guitarras Cuerpo Solido'),
     (GUITARRASACUSTICAS, 'Guitarras Acústicas'),
     (GUITARRASELECTRICAS, 'Guitarras Eléctricas'),
@@ -63,8 +66,8 @@ class Productos(models.Model):
     marca = models.CharField(max_length=20)
     codigo = models.CharField(max_length=50)
     categoria_producto = models.CharField(max_length=30, choices=CATEGORIA_CHOICES, default=INSTRUMENTOSDECUERDAS)
-    sub_categoria_producto = models.CharField(max_length=30, choices=SUBCATEGORIA_CHOICES, default='')
-    sub_sub_categoria = models.CharField(max_length=30, choices=SUBSUBCATEGORIA_CHOICES,default='')
+    sub_categoria_producto = models.CharField(max_length=30, choices=SUBCATEGORIA_CHOICES, default=NOSELECTION)
+    sub_sub_categoria = models.CharField(max_length=30, choices=SUBSUBCATEGORIA_CHOICES, default=NOSELECTION)
     precio = models.CharField(max_length=10)
     image = models.ImageField(upload_to='instrumentos_images/', verbose_name='Imagen Principal')
 
