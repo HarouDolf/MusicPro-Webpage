@@ -26,6 +26,5 @@ urlpatterns = [
     path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
     path('webpay_plus/commit', views.webpay_plus_commit, name='webpay_commit' ),
     path('cart/', views.cart, name='cart'),
-
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

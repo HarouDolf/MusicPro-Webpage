@@ -2,19 +2,27 @@ from django.shortcuts import render
 
 import random
 from django.shortcuts import redirect
-from  django.contrib import messages
+from django.contrib import messages
 from .forms import AñadirAlCarroForm
-from MusicPro.models import  Productos
+from .models import Productos, SUBSUBCATEGORIA_CHOICES, SUBCATEGORIA_CHOICES, CATEGORIA_CHOICES
 from transbank.webpay.webpay_plus.transaction import Transaction
 from django.views.decorators.csrf import csrf_protect
 from.cart import Cart
 
+
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    productos = Productos.objects.all()
+    args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
+            'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
+    return render(request, 'index.html', args)
+
 
 def producto(request):
-    return render(request, 'producto.html')
+    productos = Productos.objects.all()
+    args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
+            'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
+    return render(request, 'producto.html', args)
 
 def cart(request):
     return render(request, 'cart.html')
@@ -48,6 +56,7 @@ def clear_cart(request):
     return redirect("/cart.html")
 
 
+
 # WebPay
 def webpay_plus_create(request):
     print("Webpay Plus Transaction.create")
@@ -72,6 +81,7 @@ def webpay_plus_create(request):
 
     return render(request, 'Webpay/create.html', data)
 
+
 def webpay_plus_commit(request):
     token = request.POST.get("token_ws")
     print("commit for token_ws: {}".format(token))
@@ -84,3 +94,4 @@ def webpay_plus_commit(request):
         'response' : response
     }
     return render(request, 'Webpay/commit.html', data)
+
