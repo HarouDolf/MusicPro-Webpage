@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
-from django.conf import settings
 from MusicPro import views
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('producto/', views.producto, name='producto'),
     path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
+    path('webpay_plus/commit', views.webpay_plus_commit, name='webpay_commit' ),
+    path('cart/', views.cart, name='cart'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
