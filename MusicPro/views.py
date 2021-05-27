@@ -9,13 +9,15 @@ from transbank.webpay.webpay_plus.transaction import Transaction
 from django.views.decorators.csrf import csrf_protect
 from.cart import Cart
 
-from cart import cart
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 def producto(request):
     return render(request, 'producto.html')
+
+def cart(request):
+    return render(request, 'cart.html')
 
 
 def add_product_carrito(request, instrument_id):

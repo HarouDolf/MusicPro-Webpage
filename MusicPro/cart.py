@@ -19,7 +19,7 @@ class Cart:
                 "name": productos.nombre,
                 "quantity": 1,
                 "price": str(productos.precio),
-                "image": productos.image,
+                "image": productos.image.url,
 
             }
         else:
