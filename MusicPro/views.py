@@ -2,18 +2,21 @@ import random
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Productos, SUBSUBCATEGORIA_CHOICES, SUBCATEGORIA_CHOICES, CATEGORIA_CHOICES
+from .models import Productos, SUBSUBCATEGORIA_CHOICES, SUBCATEGORIA_CHOICES, CATEGORIA_CHOICES, Categoria, Subcategoriacuerdas
 from transbank.webpay.webpay_plus.transaction import Transaction
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login, logout
 from .forms import RegUsr, LoginForm
+from django.db.models import Q
 from.cart import Cart
 
 
 # Create your views here.
 def index(request):
     productos = Productos.objects.all()
-    args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
+    categorias = Categoria.objects.all()
+    subcategoriacuerdas = Subcategoriacuerdas.objects.all()
+    args = {'productos': productos, 'categorias':categorias, 'Subcategoriacuerdas':Subcategoriacuerdas, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
             'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
     return render(request, 'index.html', args)
 
@@ -23,6 +26,12 @@ def producto(request):
     args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
             'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
     return render(request, 'producto.html', args)
+
+def busqueda(request, categoria):
+    productos = Productos.objects.all().filter(categoria_producto__contains=categoria)
+    args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
+            'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
+    return render(request, 'busqueda.html', args)
 
 def detalle(request, producto_id):
     productos = get_object_or_404(Productos, pk=producto_id)

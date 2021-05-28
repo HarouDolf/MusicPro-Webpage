@@ -70,3 +70,9 @@ class Productos(models.Model):
     sub_sub_categoria = models.CharField(max_length=30, choices=SUBSUBCATEGORIA_CHOICES, default=NOSELECTION)
     precio = models.CharField(max_length=10)
     image = models.ImageField(upload_to='instrumentos_images/', verbose_name='Imagen Principal')
+
+class Categoria(models.Model):
+    categoria = models.CharField(max_length=30)
+
+class Subcategoriacuerdas(models.Model):
+    subcategoriacuerdas = models.CharField(max_length=30)

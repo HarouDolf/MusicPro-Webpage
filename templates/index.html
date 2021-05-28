@@ -61,68 +61,21 @@
             <h1 class="text-center color_titulos fondo_titulos"><i class="fas fa-sitemap"></i> Categorias </h1>
 
             <div class="row row-cols-1 row-cols-md-2 g-3" style="padding: 2vw 8vw 2vw 8vw">
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
-                                 style="max-width: 50vw" alt="imagen">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-light"> Instrumentos de Cuerda </h5>
-                                <p class="card-text text-light">This is a longer card with supporting text below as a
-                                    natural
-                                    lead-in to additional content.</p>
+                {% for cat in categorias %}
+                    <div class="col">
+                        <a href="{% url 'busqueda' cat.categoria %}">
+                            <div class="card">
+                                <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
+                                     style="max-width: 50vw" alt="imagen">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center text-light"> {{ cat.categoria }} </h5>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
-                                 style="max-width: 50vw" alt="imagen">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-light"> Instrumentos de Percusion </h5>
-                                <p class="card-text text-light">This is a longer card with supporting text below as a
-                                    natural
-                                    lead-in to additional content.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
-                                 style="max-width: 50vw" alt="imagen">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-light"> Amplificadores </h5>
-                                <p class="card-text text-light">This is a longer card with supporting text below as a
-                                    natural
-                                    lead-in to additional content.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img src="{% static "/media/a.jpg" %}" class="card-img-top img-fluid"
-                                 style="max-width: 50vw" alt="imagen">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-light"> Accesorios y Varios </h5>
-                                <p class="card-text text-light"> This is a longer card with supporting text below as a
-                                    natural
-                                    lead-in to additional content.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
-        </div> <!-- Inicio bloque Categorias -->
+        </div>
 
         <!-- Marcas Asociadas -->
         <h1 class="text-center color_titulos fondo_titulos"><i class="fas fa-store"></i> Marcas Asociadas </h1>

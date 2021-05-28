@@ -26,6 +26,7 @@ urlpatterns = [
     path('detalle/<int:producto_id>',views.detalle, name='detalle'),
     path('login/',views.login1, name='login'),
     path('registro/',views.registro, name='registro'),
+    path('busqueda/<str:categoria>',views.busqueda, name='busqueda'),
     path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
     path('webpay_plus/commit', views.webpay_plus_commit, name='webpay_commit' ),
     path('cart/', views.cart, name='cart'),
