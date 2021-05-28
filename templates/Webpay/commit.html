@@ -1,91 +1,95 @@
-<br>
-<br>
-<div class="row">
-    <div class="col-12 col-md-6 offset-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h2>Boleta</h2>
-                {% if response.status == "AUTHORIZED" %}
-                    {% if response.response_code == 0 %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card text-light">
+                <div class="card-body">
+                    <h2>Boleta</h2>
+                    {% if response.status == "AUTHORIZED" %}
+                        {% if response.response_code == 0 %}
 
-                        <table class="table">
+                            <table class="table text-light">
 
-                            <tr>
-                                <td>Resultado autenticación tarjetahabiente :</td>
-                                {% if response.vci == "TSY" %}
-                                    <td>Autenticación exitosa</td>
-                                {% else %}
-                                    <td>{{ response.vci }}</td>
-                                {% endif %}
-                            </tr>
+                                <tr>
+                                    <td>Resultado autenticación tarjetahabiente :</td>
+                                    {% if response.vci == "TSY" %}
+                                        <td>Autenticación exitosa</td>
+                                    {% else %}
+                                        <td>{{ response.vci }}</td>
+                                    {% endif %}
+                                </tr>
 
-                            <tr>
-                                <td>Monto :</td>
-                                <td> {{ response.amount }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Monto :</td>
+                                    <td> {{ response.amount }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Estado :</td>
-                                <td> {{ response.status }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Estado :</td>
+                                    <td> {{ response.status }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Numero orden :</td>
-                                <td> {{ response.buy_order }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Numero orden :</td>
+                                    <td> {{ response.buy_order }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Numero sesion :</td>
-                                <td> {{ response.session_id }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Numero sesion :</td>
+                                    <td> {{ response.session_id }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>detalle tarjeta :</td>
-                                <td> {{ response.card_detail }}</td>
-                            </tr>
+                                <tr>
+                                    <td>detalle tarjeta :</td>
+                                    <td> {{ response.card_detail }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Fecha autorización :</td>
-                                <td> {{ response.accounting_date }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Fecha autorización :</td>
+                                    <td> {{ response.accounting_date }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Fecha y hora autorización :</td>
-                                <td> {{ response.transaction_date }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Fecha y hora autorización :</td>
+                                    <td> {{ response.transaction_date }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Código autorización</td>
-                                <td> {{ response.authorization_code }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Código autorización</td>
+                                    <td> {{ response.authorization_code }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Tipo de pago:</td>
-                                <td> {{ response.payment_type_code }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Tipo de pago:</td>
+                                    <td> {{ response.payment_type_code }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Código respuesta :</td>
-                                <td> {{ response.response_code }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Código respuesta :</td>
+                                    <td> {{ response.response_code }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Monto de las cuotas :</td>
-                                <td> {{ response.installments_amount }}</td>
-                            </tr>
+                                <tr>
+                                    <td>Monto de las cuotas :</td>
+                                    <td> {{ response.installments_amount }}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Cantidad de cuotas :</td>
-                                <td> {{ response.installments_number }}</td>
-                            </tr>
-                        </table>
-                            <button type="submit" id="submit" class="btn btn-primary"><a href="/">Volver al menu</a></button>
+                                <tr>
+                                    <td>Cantidad de cuotas :</td>
+                                    <td> {{ response.installments_number }}</td>
+                                </tr>
+                            </table>
+                            <a href="/" class="btn btn-primary">Volver al menu</a>
 
+                        {% endif %}
                     {% endif %}
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
-<br>
+    <br>
+    <br>
+{% endblock %}

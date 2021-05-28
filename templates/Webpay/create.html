@@ -1,27 +1,22 @@
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ejemplos Webpay Plus - Crear Transaccion</title>
-
-</head>
-
-<body class="container">
-    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Ejemplo Webpay Plus - Crear Transaccion</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Step: <strong>Create Transaction</strong></li>
-    </ol>
-    </nav>
-
-
-
-<form action="{{ response.url }}" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="token_ws" value="{{ response.token }}">
-    <input type="submit" value="Ejecutar Pago con Webpay">
-</form>
-<br>
-
-<a href="/">&laquo; volver a index</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-3">
+            <div class="card my-5 d-flex"
+                 style="flex-direction: column; height: 450px; box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.6);">
+                <form class="mx-auto px-3 my-2" action="{{ response.url }}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="token_ws" value="{{ response.token }}">
+                    <input type="submit" value="Ejecutar Pago con Webpay">
+                </form>
+                <br>
+                <div class="mx-auto px-3 my-2">
+                    <a href="/">
+                        <button class="btn btn-success mx-auto my-2 px-3">&laquo; Volver</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
