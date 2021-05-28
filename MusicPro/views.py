@@ -1,12 +1,12 @@
-from django.shortcuts import render
-
 import random
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import AñadirAlCarroForm
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Productos, SUBSUBCATEGORIA_CHOICES, SUBCATEGORIA_CHOICES, CATEGORIA_CHOICES
 from transbank.webpay.webpay_plus.transaction import Transaction
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import authenticate, login, logout
+from .forms import RegUsr, LoginForm
 from.cart import Cart
 
 
@@ -24,14 +24,47 @@ def producto(request):
             'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
     return render(request, 'producto.html', args)
 
+def detalle(request, producto_id):
+    productos = get_object_or_404(Productos, pk=producto_id)
+    args = {'productos': productos, 'CATEGORIA_CHOICES': CATEGORIA_CHOICES,
+            'SUBCATEGORIA_CHOICES': SUBCATEGORIA_CHOICES, 'SUBSUBCATEGORIA_CHOICES': SUBSUBCATEGORIA_CHOICES}
+    return render(request, 'detalle.html', args)
+
+def login1(request):
+    form = LoginForm(request.POST or None)
+    if form.is_valid():
+        data=form.cleaned_data
+        user = authenticate(username=data.get("usr"), password=data.get("passwd"))
+        if user is not None:
+            login(request,user)
+            messages.success(request,'Ha iniciado sesion correctamente!')
+            return redirect("/")
+        else:
+            messages.warning(request,'Usuario y/o contraseña incorrectos!')
+    return render(request,"login.html", {"form":form})
+
+def registro(request):
+    form = RegUsr
+    if request.method == "POST":
+        form = RegUsr(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Se ha registrado con exito!')
+            return redirect("/login")
+    else:
+        form = RegUsr()
+    return render(request, "registro.html", {"form":form})
+
+
 def cart(request):
     return render(request, 'cart.html')
 
 
-def add_product_carrito(request, instrument_id):
+def add_product_carrito(request, productos_id):
     cart = Cart(request)
-    instrument = producto.objects.get(id=instrument_id)
-    cart.añadir(instrument=instrument)
+    productos = producto.objects.get(id=productos_id)
+    cart.añadir(productos=productos)
     return redirect("/cart.html")
 
 

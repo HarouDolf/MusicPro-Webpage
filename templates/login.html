@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-3">
+            <div class="card my-5 d-flex"
+                 style="flex-direction: column; height: 450px; box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.6);">
+                <form class="text-light text-center d-flex" style="flex-direction: column;" method="post">
+                    <h3 class="card-title fw-bold text-light">Iniciar Sesion</h3>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="fieldWrapper card-text fw-light text-light mx-auto px-3 my-2">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                        </div>
+                    {% endfor %}
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-success mx-auto my-2 px-3" ,name="save">Ingresar</button>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

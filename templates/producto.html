@@ -242,7 +242,7 @@
                                             <h5 class="card-title fw-bold text-light">{{ producto.nombre }}</h5>
                                             <p class="card-text fw-light text-light">{{ producto.descripcion|truncatewords:6 }}</p>
                                             <p class="card-text fw-light text-light">${{ producto.precio }}</p>
-                                            <a href="#" class="btn btn-primary">Ver Mas</a>
+                                            <a href="{% url 'detalle' producto.id %}" class="btn btn-primary">Ver Mas</a>
                                         </div>
                                     </div>
                                 </div>

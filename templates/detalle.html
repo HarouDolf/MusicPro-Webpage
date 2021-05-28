@@ -1,5 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <div class="row justify-content-center">
+        <div class="card mb-3 d-flex"
+             style="margin-top: 1%; width: 90%; box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.6);">
+            <div class="row g-0">
+                <div class="col-lg-4">
+                    <!-- Home Main Image -->
+                    <a href="{{ productos.image.url }}" data-lightbox="home-images" target="blank">
+                        <img src="{{ productos.image.url }}" alt="" class="img-main img-fluid mb-3 mt-3 mx-auto">
+                    </a>
+                    <!-- Thumbnails -->
+                </div>
+                <div class="col-lg-8">
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-bold fs-1 text-light">{{ productos.nombre }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td class="fs-4 text-light">
+                                <ttext class="fw-bold">Marca:</ttext>
+                                {{ productos.marca }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fs-4 text-light">
+                                <ttext class="fw-bold">Categoria:</ttext>
+                                {{ productos.categoria_producto }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fs-4 text-light">
+                                <ttext class="fw-bold">Sub categoria:</ttext>
+                                {{ productos.sub_categoria_producto }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fs-5 text-light">
+                                <ttext class="fw-bold">Descripcion:</ttext>
+                                <p class="fw-light">{{ productos.descripcion }}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fs-4 text-light">
+                                <ttext class="fw-bold">$</ttext>
+                                {{ productos.precio }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fs-4 justify-content-end">
+                                <a href="#"
+                                   class="btn mt-auto btn-primary fw-bold d-flex justify-content-around">Agregar al carro</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 {% endblock %}
