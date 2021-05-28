@@ -95,7 +95,7 @@ def webpay_plus_create(request):
     print("Webpay Plus Transaction.create")
     buy_order = str(random.randrange(1000000, 99999999))
     session_id = str(random.randrange(1000000, 99999999))
-    amount = random.randrange(10000, 1000000)
+    amount = 1955000
     return_url = 'http://127.0.0.1:8000/webpay_plus/commit'
 
     create_request = {
