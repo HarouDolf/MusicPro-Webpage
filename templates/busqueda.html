@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- HACER UN SKETCH DE COMO QUEREMOS QUE SEA ESTA PAGINA ANTES DE DESARROLLARLA -->
+
+    <h2 class="text-center color_titulos fondo_titulos"><i class="fas fa-shopping-bag"></i></i> Productos </h2>
+
+
+    <!-- Listado izquierdo de productos -->
+    <div class="container px-0 mx-2">
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-3 px-sm-2 px-0 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <span class="fs-5 d-none d-sm-inline">Categorias</span>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                            id="menu">
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                id="menu2">
+                                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                    id="menu3">
+                                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                        id="menu4">
+
+                                        <!--- INSTRUMENTOS DE CUERDA--------------------------------------------------->
+                                        <li>
+                                            <a href="#submenu1" data-bs-toggle="collapse"
+                                               class="nav-link px-0 align-middle" style="color: white">
+                                                <i class="fs-4 bi-speedometer2"></i>
+                                                <span class="ms-1 d-none d-sm-inline"><i
+                                                        class="fas fa-angle-right"></i> Cuerda </span> </a>
+                                            <ul class="collapse nav flex-column ms-1" id="submenu1"
+                                                data-bs-parent="#menu">
+                                                <li class="w-100">
+                                                    <a href="#submenu2" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                            <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                Guitarras</span>
+                                                    </a>
+                                                    <ul class="collapse nav flex-column ms-4" id="submenu2"
+                                                        data-bs-parent="#menu2">
+                                                        <li class="w-100">
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Guitarras Cuerpo Solido</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Guitarras Acusticas</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Guitarras Electrica</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="w-100">
+                                                    <a href="#submenu3" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos</span>
+                                                    </a>
+                                                    <ul class="collapse nav flex-column ms-4" id="submenu3"
+                                                        data-bs-parent="#menu3">
+                                                        <li class="w-100">
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos Cuatro Cuerdas</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos Cinco Cuerdas</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos Activos</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos Pasivos</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="w-100">
+                                                    <a href="#submenu4" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Pianos</span>
+                                                    </a>
+                                                    <ul class="collapse nav flex-column ms-4" id="submenu4"
+                                                        data-bs-parent="#menu4" style="color: white">
+                                                        <li class="w-100">
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Bajos Cuatro Cuerdas</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Piano de Media Cola</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Piano de Cola Entera</span>
+                                                            </a>
+                                                            <a href="#" class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Pianolas</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <!-- INSTRUMENTOS DE PERCUSION ------------------------------------------------>
+                                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                            id="menu5">
+
+                                            <a href="#submenu5" data-bs-toggle="collapse"
+                                               class="nav-link px-0 align-middle" style="color: white">
+                                                <i class="fs-4 bi-speedometer2"></i>
+                                                <span class="ms-1 d-none d-sm-inline"><i
+                                                        class="fas fa-angle-right"></i> Percusion </span> </a>
+                                            <ul class="collapse nav flex-column ms-1" id="submenu5"
+                                                data-bs-parent="#menu5">
+                                                <li class="w-100">
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Baterias Acusticas</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Baterias Electronicas</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </ul>
+
+                                        <!-- AMPLIFICADORES ----------------------------------------------------------->
+                                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                            id="menu6">
+
+                                            <a href="#submenu6" data-bs-toggle="collapse"
+                                               class="nav-link px-0 align-middle" style="color: white">
+                                                <i class="fs-4 bi-speedometer2"></i>
+                                                <span class="ms-1 d-none d-sm-inline"><i
+                                                        class="fas fa-angle-right"></i> Amplificadores </span> </a>
+                                            <ul class="collapse nav flex-column ms-1" id="submenu6"
+                                                data-bs-parent="#menu6">
+                                                <li class="w-100">
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Cabezales</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Cajas</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </ul>
+
+                                        <!-- ACCESORIOS VARIOS -------------------------------------------------------->
+                                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100"
+                                            id="menu7">
+
+                                            <a href="#submenu7" data-bs-toggle="collapse"
+                                               class="nav-link px-0 align-middle" style="color: white">
+                                                <i class="fs-4 bi-speedometer2"></i>
+                                                <span class="ms-1 d-none d-sm-inline"><i
+                                                        class="fas fa-angle-right"></i> Accesorios Varios </span> </a>
+                                            <ul class="collapse nav flex-column ms-1" id="submenu7"
+                                                data-bs-parent="#menu7">
+                                                <li class="w-100">
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Audifonos</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Monitores</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Parlantes</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Cables</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Microfonos</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Interfaces</span>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="collapse"
+                                                       class="nav-link px-20" style="color: white">
+                                                    <span class="d-none d-sm-inline"><i class="fas fa-caret-right"></i>
+                                                        Mixers</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </ul>
+
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger text-center fs-4">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!--Area para las imagenes de productos-->
+                <div style="margin: 1%;">
+                    <div class="container">
+                        <div class="row justify-content-around">
+                            {% for producto in productos %}
+                                <div class="col-lg-3">
+                                    <div class="card"
+                                         style="height: 450px; margin-bottom: 1rem; box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.6);">
+                                        <div style="height: 400px; overflow: hidden;">
+                                            <img src="{{ producto.image.url }}" class="card-img-top img-fluid"
+                                                 alt="imagen">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fw-bold text-light">{{ producto.nombre }}</h5>
+                                            <p class="card-text fw-light text-light">{{ producto.descripcion|truncatewords:6 }}</p>
+                                            <p class="card-text fw-light text-light">${{ producto.precio }}</p>
+                                            <a href="{% url 'detalle' producto.id %}" class="btn btn-primary">Ver
+                                                Mas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
