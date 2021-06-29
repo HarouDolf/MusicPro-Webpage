@@ -42,14 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'MusicPro',
 ]
-
+#4
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -69,10 +70,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },
 ]
+
+CART_SESSION_ID = 'cart'
 
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
@@ -136,21 +140,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # WEBPAY
-WEBPAY_RETURN_IP_ADDRESS = '127.0.0.1'              # Ip address of the host hosting the e-commerce site.
-WEBPAY_RETURN_PORT = 8000                           # Port where the server is listening for?
+WEBPAY_RETURN_IP_ADDRESS = '127.0.0.1'  # Ip address of the host hosting the e-commerce site.
+WEBPAY_RETURN_PORT = 8000  # Port where the server is listening for
 
 WEBPAY_NORMAL = {
 
+    'ACTIVE_ENVIRON': 'INTEGRATION',  # INTEGRATION, PRODUCTION or CERTIFICATION
+    # This values determines which url is used
+    # from the 'ENVIRONMENTS' setting.
 
-    'ACTIVE_ENVIRON': 'INTEGRATION',                # INTEGRATION, PRODUCTION or CERTIFICATION
-                                                    # This values determines which url is used
-                                                    # from the 'ENVIRONMENTS' setting.
-
-    'ENVIRONMENTS': {                               # Map the service urls to the active environment value.
+    'ENVIRONMENTS': {  # Map the service urls to the active environment value.
         'INTEGRATION': 'https://webpay3gint.transbank.cl/WSWebpayTransaction/cxf/WSWebpayService?wsdl',
     },
 
     # The following settings are self explanatory.
-    'PRIVATE_KEY':  '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',
+    'PRIVATE_KEY': '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C',
     'COMMERCE_CODE': '597055555532'
 }

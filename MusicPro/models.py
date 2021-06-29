@@ -68,7 +68,7 @@ class Productos(models.Model):
     categoria_producto = models.CharField(max_length=30, choices=CATEGORIA_CHOICES, default=INSTRUMENTOSDECUERDAS)
     sub_categoria_producto = models.CharField(max_length=30, choices=SUBCATEGORIA_CHOICES, default=NOSELECTION)
     sub_sub_categoria = models.CharField(max_length=30, choices=SUBSUBCATEGORIA_CHOICES, default=NOSELECTION)
-    precio = models.CharField(max_length=10)
+    precio = models.IntegerField(default=0, null=True)
     image = models.ImageField(upload_to='instrumentos_images/', verbose_name='Imagen Principal')
 
 class Categoria(models.Model):

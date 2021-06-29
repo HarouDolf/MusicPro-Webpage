@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from MusicPro import views
 from django.conf import settings
+from MusicPro.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +28,13 @@ urlpatterns = [
     path('login/',views.login1, name='login'),
     path('registro/',views.registro, name='registro'),
     path('busqueda/<str:categoria>',views.busqueda, name='busqueda'),
-    path('webpay_plus/create',views.webpay_plus_create, name='webpay'),
     path('webpay_plus/commit', views.webpay_plus_commit, name='webpay_commit' ),
-    path('cart/', views.cart, name='cart'),
+    path('add_product_catalogo/<int:productos_id>/', add_product_catalogo, name='add_product_catalogo'),
+    path('add_product_carrito/<int:productos_id>/', add_product_carrito, name='add_product_carrito'),
+    path('cart/', views.webpay_plus_create, name='cart'),
+    path('remove_product/<int:productos_id>/', remove_product, name='remove_product'),
+    path('decrement_product/<int:productos_id>/', decrement_product, name='decrement_product'),
+    path('clear/', clear_cart, name='clear_cart'),
+    path('logout/',logout,name='logout')
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
